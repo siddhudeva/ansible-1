@@ -7,6 +7,6 @@
 - name: Download {{COMPONENT}} from Nexus
   ansible.builtin.get_url:
     url: http://nexus.roboshop.internal:8081/repository/{{COMPONENT}}/{{COMPONENT}}-{{APP_VERSION}}.zip
-    dest: /tmp 
+    dest: /tmp
     username: "{{NEXUS_USERNAME}}"
     password: "{{NEXUS_PASSWORD}}"
