@@ -7,8 +7,8 @@ groups:
         labals:
           severity: critical
         annotations:
-          summery: "instance Down - [{{ $labels.instance}}]"
-          description: "instance Down - [{{ $labels.instance}}]"
+          summery: {%raw%}"instance Down - [{{ $labels.instance}}]"{%endraw%}
+          description: {%raw%}"instance Down - [{{ $labels.instance}}]"{%endraw%}
 
   - name: CPU alerts
     rules:
@@ -20,8 +20,8 @@ groups:
           type: InstanceAlert
           kind: CpuHighUsage
         annotations:
-          summery: "CPU usage is high- [{{ $labels.instance}}]"
-          description: "CPU usage is high- [{{ $labels.instance}}]"
+          summery: {%raw%}"CPU usage is high- [{{ $labels.instance}}]"{%endraw%}
+          description: {%raw%}"CPU usage is high- [{{ $labels.instance}}]"{%endraw%}
   - name: Memory alerts
     rules:
       - alert: MemoryUsageAlert
@@ -32,5 +32,5 @@ groups:
           type: Memoryfullalert
           kind: MemoryUsageHigh
         annotations:
-          summery: "Memory usage is high- [{{ $labels.instance}}]"
-          description: "Memory usage is high- [{{ $labels.instance}}]"
+          summery: {%raw%}"Memory usage is high- [{{ $labels.instance}}]"{%endraw%}
+          description: {%raw%}"Memory usage is high- [{{ $labels.instance}}]"{%endraw%}
