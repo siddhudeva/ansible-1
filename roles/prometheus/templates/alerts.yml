@@ -7,7 +7,7 @@ groups:
         labals:
           severity: critical
         annotations:
-          summery: {%raw%}"instance Down - [{{ $labels.instance}}]"{%endraw%}
+          summery: "instance Down - [{{ $labels.instance}}]"
           description: {%raw%}"instance Down - [{{ $labels.instance}}]"{%endraw%}
 
   - name: CPU alerts
