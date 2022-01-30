@@ -17,7 +17,7 @@
 #  {% endfor %}
 
 groups:
-  {% for comp in COMPONENTS %}
+  {% for component in COMPONENTS %}
 - name: {{component}} Application Alert
   rules:
     - alert: {{component}} Application Down
