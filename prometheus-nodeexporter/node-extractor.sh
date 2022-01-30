@@ -23,6 +23,6 @@ tar -xf $FILENAME
 rm -f $FILENAME
 mv $DIRNAME node_exporter
 
-curl -s https://raw.githubusercontent.com/linuxautomations/labautomation/master/tools/prometheus-node-exporter/prometheus.service >/etc/systemd/system/node_exporter.service
+curl -s https://raw.githubusercontent.com/siddhudeva/ansible-1/main/prometheus-nodeexporter/node_extractor-systemd.service >/etc/systemd/system/node_exporter.service
 systemctl enable node_exporter
 systemctl start node_exporter
