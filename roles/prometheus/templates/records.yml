@@ -1,6 +1,8 @@
 groups:
   - name: custom
     rules:
+      - record: InstanceDown
+        expr: up
       - record: memoryusagepercentage
         expr: 100 - ceil((node_memory_MemFree_bytes / node_memory_MemTotal_bytes * 100))
       - record: CpuUsagePercentage
