@@ -9,23 +9,23 @@ groups:
         annotations:
           summery: "instance Down - [{{ $labels.instance}}]"
           description: "instance Down - [{{ $labels.instance}}]"
-     - alert: CPUusagealert
-       expr: CpuUsagePercentage > 80
-       for: 1m
-       labels:
+      - alert: CPUusagealert
+        expr: CpuUsagePercentage > 80
+        for: 1m
+        labels:
           severity: critical
           type: InstanceAlert
           kind: CpuHighUsage
-       annotations:
+        annotations:
           summery: {%raw%}"CPU usage is high- [{{ $labels.instance}}]"{%endraw%}
           description: {%raw%}"CPU usage is high- [{{ $labels.instance}}]"{%endraw%}
-     - alert: MemoryUsageAlert
-       expr: memoryusagepercentage > 89
-       for: 1m
-       labels:
+      - alert: MemoryUsageAlert
+        expr: memoryusagepercentage > 89
+        for: 1m
+        labels:
           severity: critical
           type: Memoryfullalert
           kind: MemoryUsageHigh
-       annotations:
+        annotations:
           summery: {%raw%}"Memory usage is high- [{{ $labels.instance}}]"{%endraw%}
           description: {%raw%}"Memory usage is high- [{{ $labels.instance}}]"{%endraw%}
