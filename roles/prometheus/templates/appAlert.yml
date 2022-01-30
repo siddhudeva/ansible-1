@@ -18,6 +18,7 @@
 
 groups:
   {% for component in COMPONENTS %}
+
 - name: {{component}} Application Alert
   rules:
     - alert: {{component}} Application Down
@@ -34,5 +35,6 @@ groups:
         summary: "{{component}} Component Service Down - IP - {%raw%}[{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
 
         description: "{{component}} Component Service Down - IP - {%raw%}[{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
+
 
   {% endfor %}
