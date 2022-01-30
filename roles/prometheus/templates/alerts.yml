@@ -17,8 +17,8 @@ groups:
          type: InstanceAlert
          kind: CpuHighUsage
       annotations:
-        summery: "CPU usage is high- [{{ $labels.instance}}]"
-        description: "CPU usage is high- [{{ $labels.instance}}]"
+        summery: {%raw%}"CPU usage is high- [{{ $labels.instance}}]"{%endraw%}
+        description: {%raw%}"CPU usage is high- [{{ $labels.instance}}]"{%endraw%}
     -alert: MemoryUsageAlert
      expr: memoryusagepercentage > 89
      for: 1m
@@ -27,5 +27,5 @@ groups:
        type: Memoryfullalert
        kind: MemoryUsageHigh
     annotations:
-      summery: "Memory usage is high- [{{ $labels.instance}}]"
-      description: "Memory usage is high- [{{ $labels.instance}}]"
+      summery: {%raw%}"Memory usage is high- [{{ $labels.instance}}]"{%endraw%}
+      description: {%raw%}"Memory usage is high- [{{ $labels.instance}}]"{%endraw%}
