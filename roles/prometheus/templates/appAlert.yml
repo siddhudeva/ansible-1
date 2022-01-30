@@ -1,8 +1,8 @@
 groups:
-  - name: Instance Down Alerts
+  - name: cart- Alerts
     rules:
-      - alert: InstanceDown
-        expr: up == 0
+      - alert: cart-InstanceDown
+        expr: node_systemd_unit_state{name="basic.target", state="active"} != 0
         for: 1m
         labels:
           severity: critical

@@ -7,11 +7,16 @@
   template:
     src: records.yml
     dest: /opt/prometheus/records.yml
+
 - name: Update Instance Alerts file
   template:
     src: alerts.yml
     dest: /opt/prometheus/alerts.yml
 
+- name: Update appAlerts file
+  template:
+    src: appAlert.yml
+    dest: /opt/prometheus/appAlert.yml
 
 - name: restart prometheus services
   ansible.builtin.systemd:
