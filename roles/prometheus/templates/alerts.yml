@@ -9,7 +9,10 @@ groups:
         annotations:
           summery: "instance Down - [{{ $labels.instance}}]"
           description: "instance Down - [{{ $labels.instance}}]"
-      - alert: CPUusagealert
+
+  - name: CPU alerts
+    rules:
+     - alert: CPUusagealert
         expr: CpuUsagePercentage > 80
         for: 1m
         labels:
@@ -19,6 +22,8 @@ groups:
         annotations:
           summery: "CPU usage is high- [{{ $labels.instance}}]"
           description: "CPU usage is high- [{{ $labels.instance}}]"
+  - name: Memory alerts
+    rules:
       - alert: MemoryUsageAlert
         expr: memoryusagepercentage > 89
         for: 1m
