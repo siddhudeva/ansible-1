@@ -30,7 +30,7 @@ scrape_configs:
    - job_name: "ec2-nodes"
      ec2_sd_configs:               # static_configs are used to target the all instnces which are in aws account
        - region: us-east-1
-         port:9100                 # prometheus server will  go and check any extracted details here
+         port: 9100                 # prometheus server will  go and check any extracted details here
          filters:
            - name: tag:Monitor
              values: [ "yes" ]
