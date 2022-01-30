@@ -8,9 +8,10 @@ groups:
         labels:
           severity: critical
           type: instanceAlert
-          kind: instance-Down
+          kind: serviceAlert
         annotations:
-          summary: "{{comp}}-{%raw%} instance - IP - [{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]{%endraw%}"
-          description: "{{comp}}-{%raw%} instance - IP - [{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]{{%endraw%}"
+          summary: "{{component}} Component Service Down - IP - {%raw%}[{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{ %endraw% }
 
-{% endfor %}
+          description: "{{component}} Component Service Down - IP - {%raw%}[{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{ %endraw% }
+
+  {% endfor %}
