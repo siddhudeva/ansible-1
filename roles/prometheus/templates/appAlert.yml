@@ -1,0 +1,14 @@
+groups:
+  - name: Instance Down Alerts
+    rules:
+      - alert: InstanceDown
+        expr: up == 0
+        for: 1m
+        labels:
+          severity: critical
+          type: instanceAlert
+          kind: instanceDown
+        annotations:
+          summary: {%raw%}"Instance Down - IP - [{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
+
+          description: {%raw%}"Instance Down - IP - [{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
