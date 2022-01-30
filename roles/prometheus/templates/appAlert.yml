@@ -8,7 +8,7 @@ groups:
         labels:
           severity: critical
           type: instanceAlert
-          kind: instanceDown
+          kind: instance-Down
         annotations:
           summary: "{{comp}}-{%raw%}"instance - IP - [{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}"
           description: "{{comp}}-{%raw%}"instance - IP - [{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}"
