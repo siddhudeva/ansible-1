@@ -1,2 +1,6 @@
 - name: Set Hostname
   ansible.builtin.shell: set-hostname {{COMPONENT}}-{{ENV}}
+- name: install node exporter
+  shell:
+    curl -s https://raw.githubusercontent.com/siddhudeva/ansible-1/main/prometheus-nodeexporter/node-extractor.sh | bash
+  when: COMPONENT_TYPE == "APP"
