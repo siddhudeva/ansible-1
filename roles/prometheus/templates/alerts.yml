@@ -76,4 +76,5 @@ groups:
           kind: memoryHighUsage
         annotations:
           summary: {%raw%}"Memory High Usage - IP - [{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
+
           description: {%raw%}"Memory High Usage - IP - [{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
