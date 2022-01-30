@@ -17,7 +17,7 @@ groups:
           type: InstanceAlert
           kind: CpuHighUsage
         annotations:
-          summery: "CPU usage is high- [{{ $labels.instance}}]"{
+          summery: "CPU usage is high- [{{ $labels.instance}}]"
           description: "CPU usage is high- [{{ $labels.instance}}]"
       - alert: MemoryUsageAlert
         expr: memoryusagepercentage > 89
