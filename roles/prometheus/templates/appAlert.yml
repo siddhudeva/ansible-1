@@ -10,8 +10,7 @@ groups:
           type: instanceAlert
           kind: instance-Down
         annotations:
-
-          summary: "{{comp}}-{%raw%}"instance - IP - [{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}"
-          description: "{{comp}}-{%raw%}"instance - IP - [{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}"
+          summary: "{{comp}}-{%raw%} instance - IP - [{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]{%endraw%}"
+          description: "{{comp}}-{%raw%} instance - IP - [{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]{{%endraw%}"
 
 {% endfor %}
