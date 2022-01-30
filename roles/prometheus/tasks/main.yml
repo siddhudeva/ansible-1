@@ -12,5 +12,5 @@
 - name: restart prometheus services
   ansible.builtin.systemd:
       name: prometheus
-      state: restart
+      state: restarted
       enabled: yes
