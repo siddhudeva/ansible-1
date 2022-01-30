@@ -33,6 +33,9 @@ scrape_configs:
   - job_name: "ec2-node 2"
     static_configs:
       - targets: ["54.221.95.197:9100"]
+  - job_name: "ec2-node 3"
+    static_configs:
+      - targets: ["34.237.242.40:9100"]
 
   - job_name: 'ec2-nodes'
     ec2_sd_configs:
