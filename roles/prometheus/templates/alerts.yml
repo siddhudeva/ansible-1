@@ -20,7 +20,7 @@ groups:
         summery: "CPU usage is high- [{{ $labels.instance}}]"
         description: "CPU usage is high- [{{ $labels.instance}}]"
     -alert: MemoryUsageAlert
-     expr: memoryusagepercentage > 80
+     expr: memoryusagepercentage > 89
      for: 1m
      labels:
        severity: critical

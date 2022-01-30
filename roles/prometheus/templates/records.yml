@@ -5,3 +5,5 @@ groups:
         expr: 100 - ceil((node_memory_MemFree_bytes / node_memory_MemTotal_bytes * 100))
       - record: CpuUsagePercentage
         expr: 100 - (avg by (instance) (irate(node_cpu_seconds_total{mode="idle"}[30s])) * 100)
+      - record: memoryusagepercentage
+        expr: 100 - ceil((node_memory_MemFree_bytes / node_memory_MemTotal_bytes * 100))
