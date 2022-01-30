@@ -48,6 +48,7 @@ groups:
           kind: instanceDown
         annotations:
           summary: {%raw%}"Instance Down - IP - [{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
+
           description: {%raw%}"Instance Down - IP - [{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
 
   - name: Instance CPU Alerts
@@ -61,6 +62,7 @@ groups:
           kind: cpuHighUsage
         annotations:
           summary: {%raw%}"CPU High Usage - IP - [{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
+
           description: {%raw%}"CPU Usage - IP - [{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
 
   - name: Instance Memory Alerts
