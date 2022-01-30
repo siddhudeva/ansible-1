@@ -1,36 +1,80 @@
+#groups:
+#  - name: Instance alerts
+#    rules:
+#      - alert: InstanceDown
+#        exrp: up == 0
+#        for: 1m
+#        labals:
+#          severity: critical
+#        annotations:
+#          summery: "instance Down - critical"
+#          description: "instance Down - critical"
+#
+#  - name: CPU alerts
+#    rules:
+#     - alert: CPUusagealert
+#        expr: CpuUsagePercentage > 80
+#        for: 1m
+#        labels:
+#          severity: critical
+#          type: InstanceAlert
+#          kind: CpuHighUsage
+#        annotations:
+#          summery: "CPU usage is high- critical"
+#          description: "CPU usage is high- critical"
+#  - name: Memory alerts
+#    rules:
+#      - alert: MemoryUsageAlert
+#        expr: memoryusagepercentage > 89
+#        for: 1m
+#        labels:
+#          severity: critical
+#          type: Memoryfullalert
+#          kind: MemoryUsageHigh
+#        annotations:
+#          summery: "Memory usage is high- critical"
+#          description: "Memory usage is high- critical"
+
+
 groups:
-  - name: Instance alerts
+  - name: Instance Down Alerts
     rules:
       - alert: InstanceDown
-        exrp: up == 0
-        for: 1m
-        labals:
-          severity: critical
-        annotations:
-          summery: "instance Down - critical"
-          description: "instance Down - critical"
-
-  - name: CPU alerts
-    rules:
-     - alert: CPUusagealert
-        expr: CpuUsagePercentage > 80
+        expr: up == 0
         for: 1m
         labels:
           severity: critical
-          type: InstanceAlert
-          kind: CpuHighUsage
+          type: instanceAlert
+          kind: instanceDown
         annotations:
-          summery: "CPU usage is high- critical"
-          description: "CPU usage is high- critical"
-  - name: Memory alerts
+          summary: {%raw%}"Instance Down - IP - [{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
+
+          description: {%raw%}"Instance Down - IP - [{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
+
+  - name: Instance CPU Alerts
+    rules:
+      - alert: CpuUsageAlert
+        expr: cpuUsagePercentage > 80
+        for: 2m
+        labels:
+          severity: critical
+          type: instanceAlert
+          kind: cpuHighUsage
+        annotations:
+          summary: {%raw%}"CPU High Usage - IP - [{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
+
+          description: {%raw%}"CPU Usage - IP - [{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
+
+  - name: Instance Memory Alerts
     rules:
       - alert: MemoryUsageAlert
-        expr: memoryusagepercentage > 89
-        for: 1m
+        expr: memoryUsagePercentage > 80
+        for: 2m
         labels:
           severity: critical
-          type: Memoryfullalert
-          kind: MemoryUsageHigh
+          type: instanceAlert
+          kind: memoryHighUsage
         annotations:
-          summery: "Memory usage is high- critical"
-          description: "Memory usage is high- critical"
+          summary: {%raw%}"Memory High Usage - IP - [{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
+
+          description: {%raw%}"Memory High Usage - IP - [{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
