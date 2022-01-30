@@ -36,9 +36,9 @@ scrape_configs:
              values: [ "yes" ]
      relabel_configs:
        - source_labels: [__meta_ec2_tag_ENV]
-         target_label: environment
+           - target_label: environment
        - source_labels: [__meta_ec2_tag_Name]
-         target_label: instanceName
+           - target_label: instanceName
 
 
 
