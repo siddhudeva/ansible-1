@@ -1,0 +1,31 @@
+groups:
+  - name: Instance alerts
+    rules:
+      - alert: InstanceDown
+        exrp: up == 0
+        for: 1m
+        labals:
+          severity: critical
+        annotations:
+          summery: "instance Down - [{{ $labels.instance}}]"
+          description: "instance Down - [{{ $labels.instance}}]"
+     - alert: CPUusagealert
+       expr: CpuUsagePercentage > 80
+       for: 1m
+       labels:
+         severity: critical
+         type: InstanceAlert
+         kind: CpuHighUsage
+      annotations:
+        summery: "CPU usage is high- [{{ $labels.instance}}]"
+        description: "CPU usage is high- [{{ $labels.instance}}]"
+    -alert: MemoryUsageAlert
+     expr: memoryusagepercentage > 80
+     for: 1m
+     labels:
+       severity: critical
+       type: Memoryfullalert
+       kind: MemoryUsageHigh
+    annotations:
+      summery: "Memory usage is high- [{{ $labels.instance}}]"
+      description: "Memory usage is high- [{{ $labels.instance}}]"
