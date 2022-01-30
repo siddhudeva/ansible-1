@@ -10,7 +10,7 @@
 
 
 - name: restart prometheus services
-    systemd:
+  ansible.builtin.systemd:
       name: prometheus
       state: restart
-      enable: yes
+      enabled: yes
