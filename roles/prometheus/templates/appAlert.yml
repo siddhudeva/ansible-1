@@ -23,7 +23,6 @@ groups:
     rules:
      - alert: {{component}} Application Down
        expr: node_systemd_unit_state{instance={{component}},name="basic.target", state="active"} == 0
-
        for: 1m
        labels:
          severity: critical

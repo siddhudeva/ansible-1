@@ -1,41 +1,3 @@
-#groups:
-#  - name: Instance alerts
-#    rules:
-#      - alert: InstanceDown
-#        exrp: up == 0
-#        for: 1m
-#        labals:
-#          severity: critical
-#        annotations:
-#          summery: "instance Down - critical"
-#          description: "instance Down - critical"
-#
-#  - name: CPU alerts
-#    rules:
-#     - alert: CPUusagealert
-#        expr: CpuUsagePercentage > 80
-#        for: 1m
-#        labels:
-#          severity: critical
-#          type: InstanceAlert
-#          kind: CpuHighUsage
-#        annotations:
-#          summery: "CPU usage is high- critical"
-#          description: "CPU usage is high- critical"
-#  - name: Memory alerts
-#    rules:
-#      - alert: MemoryUsageAlert
-#        expr: memoryusagepercentage > 89
-#        for: 1m
-#        labels:
-#          severity: critical
-#          type: Memoryfullalert
-#          kind: MemoryUsageHigh
-#        annotations:
-#          summery: "Memory usage is high- critical"
-#          description: "Memory usage is high- critical"
-
-
 groups:
   - name: Instance Down Alerts
     rules:
@@ -78,3 +40,42 @@ groups:
           summary: {%raw%}"Memory High Usage - IP - [{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
 
           description: {%raw%}"Memory High Usage - IP - [{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
+
+
+            #groups:
+            #  - name: Instance alerts
+            #    rules:
+            #      - alert: InstanceDown
+            #        exrp: up == 0
+            #        for: 1m
+            #        labals:
+            #          severity: critical
+            #        annotations:
+            #          summery: "instance Down - critical"
+            #          description: "instance Down - critical"
+            #
+            #  - name: CPU alerts
+            #    rules:
+            #     - alert: CPUusagealert
+            #        expr: CpuUsagePercentage > 80
+            #        for: 1m
+            #        labels:
+            #          severity: critical
+            #          type: InstanceAlert
+            #          kind: CpuHighUsage
+            #        annotations:
+            #          summery: "CPU usage is high- critical"
+            #          description: "CPU usage is high- critical"
+            #  - name: Memory alerts
+            #    rules:
+            #      - alert: MemoryUsageAlert
+            #        expr: memoryusagepercentage > 89
+            #        for: 1m
+            #        labels:
+            #          severity: critical
+            #          type: Memoryfullalert
+            #          kind: MemoryUsageHigh
+            #        annotations:
+            #          summery: "Memory usage is high- critical"
+            #          description: "Memory usage is high- critical"
+
