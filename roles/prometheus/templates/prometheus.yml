@@ -14,7 +14,7 @@ alerting:
 
 # Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
 rule_files:
-#  - "appAlert.yml"
+  - "appAlert.yml"
   - "records.yml"
   - "alerts.yml"
 
