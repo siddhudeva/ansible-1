@@ -1,6 +1,6 @@
 groups:
 {% for comp in COMPONENTS %}
-  - name: cart- Alerts
+  - name: node-{{comp}}  Alerts
     rules:
       - alert: {{comp}} -InstanceDown
         expr: node_systemd_unit_state{instance={{comp}},name="basic.target", state="active"} == 0
