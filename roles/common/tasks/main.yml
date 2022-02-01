@@ -1,6 +1,25 @@
 - name: Set Hostname
   ansible.builtin.shell: set-hostname {{COMPONENT}}-{{ENV}}
+
 - name: install node exporter
   shell:
     curl -s https://raw.githubusercontent.com/siddhudeva/ansible-1/main/prometheus-nodeexporter/node-extractor.sh | bash
   when: COMPONENT_TYPE == "APP"
+
+- name: install node exporter
+  template:
+    src: rsyslog.conf
+    dest: /etc/rsyslog.d/roboshop.conf
+  when: COMPONENT_TYPE == "APP"
+
+- name: restart rsyslog
+  systemd:
+    name: rsyslog
+    state: restarted
+    enabled: yes
+  when: COMPONENT_TYPE == "APP"
+
+#- name: restart {{COMPONENT}}
+#  systemd:
+#    name: {{COMPONENT}}
+#    state: restarted
