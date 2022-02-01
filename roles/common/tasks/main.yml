@@ -20,5 +20,4 @@
   when: COMPONENT_TYPE == "APP"
 
 - name: include filebeat
-  ansible.builtin.include_tasks:
-    files: filebeat.yml
+  import_tasks: filebeat.yml
