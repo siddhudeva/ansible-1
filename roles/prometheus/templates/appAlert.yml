@@ -15,6 +15,7 @@ groups:
           description: "{{comp}} Component Service Down - IP - {%raw%}[{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
 
 {% endfor %}
+
 #groups:
 #  - name: node1 Application Alert
 #     rules:
