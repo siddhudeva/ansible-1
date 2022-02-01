@@ -1,9 +1,12 @@
 groups:
+
 {% for comp in COMPONENTS %}
+
   - name: node-{{comp}}  Alerts
     rules:
       - alert: {{comp}} -InstanceDown
         expr: node_systemd_unit_state{instance={{comp}},name="basic.target", state="active"} == 0
+
         for: 1m
         labels:
           severity: critical
@@ -12,69 +15,8 @@ groups:
         annotations:
           summary: "{{comp}} Component Service Down - IP - {%raw%}[{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
 
+
           description: "{{comp}} Component Service Down - IP - {%raw%}[{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
 
+
 {% endfor %}
-
-#groups:
-#  - name: node1 Application Alert
-#     rules:
-#       - alert: node1 Application Down
-#        expr: node_systemd_unit_state{instance="172.31.18.88:9100",name="basic.target", state="active"} == 0
-#        for: 1m
-#        labels:
-#          severity: critical
-#          type: appAlert
-#          kind: serviceAlert
-#        annotations:
-#          summary: " node1 Component Service Down - IP - {%raw%}[{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
-#
-#          description: " node1 Component Service Down - IP - {%raw%}[{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
-#
-#
-#  - name: node2 Application Alert
-#      rules:
-#        - alert: node2 Application Down
-#          expr: node_systemd_unit_state{instance="172.31.87.26:9100",name="basic.target", state="active"} == 0
-#          for: 1m
-#          labels:
-#            severity: critical
-#            type: appAlert
-#            kind: serviceAlert
-#          annotations:
-#            summary: "node2 Component Service Down - IP - {%raw%}[{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
-#
-#            description: "node2 Component Service Down - IP - {%raw%}[{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
-#
-#  - name: node3 Application Alert
-#      rules:
-#        - alert: node3 Application Down
-#          expr: node_systemd_unit_state{instance="172.31.93.173:9100",name="basic.target", state="active"} == 0
-#          for: 1m
-#          labels:
-#            severity: critical
-#            type: appAlert
-#            kind: serviceAlert
-#          annotations:
-#            summary: "node3 Component Service Down - IP - {%raw%}[{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
-#
-#            description: "node3 Component Service Down - IP - {%raw%}[{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
-#
-
-            #groups:
-            #{% for comp in COMPONENTS %}
-            #  - name: cart- Alerts
-            #    rules:
-            #      - alert: {{comp}} -InstanceDown
-            #        expr: node_systemd_unit_state{instance={{comp}},name="basic.target", state="active"} == 0
-            #        for: 1m
-            #        labels:
-            #          severity: critical
-            #          type: instanceAlert
-            #          kind: serviceAlert
-            #        annotations:
-            #          summary: "{{comp}} Component Service Down - IP - {%raw%}[{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
-            #
-            #          description: "{{comp}} Component Service Down - IP - {%raw%}[{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
-            #
-            #  {% endfor %}
