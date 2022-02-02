@@ -11,7 +11,7 @@ setup.template.settings:
   index.number_of_shards: 1
 
 output.logstash:
-  hosts: ["logstash.roboshop.internal:5044"]
+  hosts: ["44.201.193.80:5044"]
 
 processors:
   - add_host_metadata:
