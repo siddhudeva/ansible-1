@@ -15,8 +15,8 @@
 
 - name: Update appAlerts file
   template:
-    src: appAlert.yml
-    dest: /opt/prometheus/appAlert.yml
+    src: appAlerts.yml
+    dest: /opt/prometheus/appAlerts.yml
 
 - name: restart prometheus services
   ansible.builtin.systemd:
