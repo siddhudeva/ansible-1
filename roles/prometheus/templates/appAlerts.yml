@@ -1,8 +1,8 @@
 groups:
   - name: Instance Down Alerts
     rules:
-      - alert: InstanceDown
-        expr: up == 0
+      - alert: node-1 is down
+        expr: node_systemd_unit_state{job="ec2-node 2", state="active", type="forking"} == 0
         for: 1m
         labels:
           severity: critical
