@@ -1,0 +1,15 @@
+route:
+  group_by: ['alertname']
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 1h
+  receiver: 'email'
+receivers:
+  - name: email
+    email_configs:
+      - to: siddhudangeti@gmail.com
+        from: dsmahadeva8@gmail.com
+        smarthost: email-smtp.us-east-1.amazonaws.com:587
+        auth_username: siddhudangeti@gmail.com
+        auth_password: AKIA3DIP6PJSKYYAF274,BJQKxTQyAj7nW518zaZaMu0U6tiUC25irUMo35UCPu+m
+        require_tls: yes

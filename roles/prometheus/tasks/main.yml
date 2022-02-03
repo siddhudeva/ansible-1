@@ -1,22 +1,22 @@
 - name: update prometheus configuration
   template:
     src: prometheus.yml
-    dest: /etc/prometheus/prometheus.yml
+    dest: /opt/prometheus/prometheus.yml
 
 - name: update record files
   template:
     src: records.yml
-    dest: /etc/prometheus/records.yml
+    dest: /opt/prometheus/records.yml
 
 - name: Update Instance Alerts file
   template:
     src: alerts.yml
-    dest: /etc/prometheus/alerts.yml
+    dest: /opt/prometheus/alerts.yml
 
 - name: Update appAlerts file
   template:
     src: appAlerts.yml
-    dest: /etc/prometheus/appAlerts.yml
+    dest: /opt/prometheus/appAlerts.yml
 
 - name: restart prometheus services
   ansible.builtin.systemd:
