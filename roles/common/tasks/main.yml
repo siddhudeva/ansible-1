@@ -6,7 +6,7 @@
     curl -s https://raw.githubusercontent.com/siddhudeva/ansible-1/main/prometheus-nodeexporter/node-extractor.sh | bash
   when: COMPONENT_TYPE == "APP"
 
-- name: install node exporter
+- name: UPDATE rsysy log conf file
   template:
     src: rsyslog.conf
     dest: /etc/rsyslog.d/roboshop.conf
