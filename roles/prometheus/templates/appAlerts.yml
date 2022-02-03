@@ -13,5 +13,4 @@ groups:
           summary: {%raw%}"{{comp}} Down - IP - [{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
 
           description: {%raw%}"{{comp}} Down - IP - [{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
-
 {% endfor %}
