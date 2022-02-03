@@ -1,4 +1,5 @@
 groups:
+all_hosts +=[
 {% for comp in COMPONENTS %}
   - name: Instance Down Alerts
     rules:
@@ -15,3 +16,4 @@ groups:
           description: {%raw%}"{{comp}} Down - IP - [{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
 
 {% endfor %}
+]
