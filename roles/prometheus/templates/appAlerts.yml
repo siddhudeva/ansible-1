@@ -1,14 +1,16 @@
 groups:
+{% for comp in COMPONENT %}
   - name: Instance Down Alerts
     rules:
       - alert: node-1 is down
-        expr: node_systemd_unit_state{job="ec2-node 2", state="active", type="forking"} == 0
+        expr: node_systemd_unit_state{{instance="{{comp}}", name="acpid.service", state="active", type="forking"} == 0
         for: 1m
         labels:
           severity: critical
           type: instanceAlert
           kind: instanceDown
         annotations:
-          summary: {%raw%}"Instance Down - IP - [{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
+          summary: {%raw%}"{{comp}} Down - IP - [{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
 
-          description: {%raw%}"Instance Down - IP - [{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
+          description: {%raw%}"{{comp}} Down - IP - [{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
+{% endfor %}
