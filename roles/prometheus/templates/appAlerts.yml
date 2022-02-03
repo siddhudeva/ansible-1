@@ -1,5 +1,5 @@
 groups:
-{% for comp in COMPONENT %}
+{% for comp in COMPONENTS %}
   - name: Instance Down Alerts
     rules:
       - alert: node-1 is down
@@ -13,4 +13,5 @@ groups:
           summary: {%raw%}"{{comp}} Down - IP - [{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
 
           description: {%raw%}"{{comp}} Down - IP - [{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
+
 {% endfor %}
