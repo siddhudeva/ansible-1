@@ -2,7 +2,7 @@ groups:
 {% for comp in COMPONENTS %}
   - name: Instance Down Alerts
     rules:
-      - alert: node-1 is down
+      - alert: node-{{comp}} is down
         expr: node_systemd_unit_state{{instance="{{comp}}", name="acpid.service", state="active", type="forking"} == 0
         for: 1m
         labels:
