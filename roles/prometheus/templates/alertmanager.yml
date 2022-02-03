@@ -10,6 +10,6 @@ receivers:
       - to: siddhudangeti@gmail.com
         from: dsmahadeva8@gmail.com
         smarthost: email-smtp.us-east-1.amazonaws.com:587
-        auth_username: siddhudangeti@gmail.com
-        auth_password: AKIA3DIP6PJSKYYAF274,BJQKxTQyAj7nW518zaZaMu0U6tiUC25irUMo35UCPu+m
+        auth_username: AKIA3DIP6PJSKYYAF274
+        auth_password: BJQKxTQyAj7nW518zaZaMu0U6tiUC25irUMo35UCPu+m
         require_tls: yes
