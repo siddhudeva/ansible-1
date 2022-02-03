@@ -1,35 +1,35 @@
-groups:
-    {% for comp in COMPONENTS %}
-  - name: Instance Down Alerts
-    rules:
-      - alert: node-{{comp}} is down
-        expr: node_systemd_unit_state{{instance="{{comp}}", name="acpid.service", state="active", type="forking"} == 0
-        for: 1m
-        labels:
-          severity: critical
-          type: instanceAlert
-          kind: instanceDown
-        annotations:
-          summary: {%raw%}"{{comp}} Down - IP - [{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
-
-          description: {%raw%}"{{comp}} Down - IP - [{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
-    {% endfor %}
-
 #groups:
-#  {% for component in COMPONENTS %}
-#- name: {{component}} Application Alert
-#  rules:
-#    - alert: {{component}} Application Down
-#      expr: node_systemd_unit_state{job="ec2-nodes", name="{{component|lower}}.service", state="active"} == 0
-#      for: 1m
-#      labels:
-#        severity: critical
-#        type: applicationAlerts
-#        kind: serviceAlert
-#        appName: {{component|lower}}
-#      annotations:
-#        summary: "{{component}} Component Service Down - IP - {%raw%}[{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
+#    {% for comp in COMPONENTS %}
+#  - name: Instance Down Alerts
+#    rules:
+#      - alert: node-{{comp}} is down
+#        expr: node_systemd_unit_state{{instance="{{comp}}", name="acpid.service", state="active", type="forking"} == 0
+#        for: 1m
+#        labels:
+#          severity: critical
+#          type: instanceAlert
+#          kind: instanceDown
+#        annotations:
+#          summary: {%raw%}"{{comp}} Down - IP - [{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
 #
-#        description: "{{component}} Component Service Down - IP - {%raw%}[{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
-#
-#  {% endfor %}
+#          description: {%raw%}"{{comp}} Down - IP - [{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
+#    {% endfor %}
+
+groups:
+  {% for component in COMPONENTS %}
+- name: {{component}} Application Alert
+  rules:
+    - alert: {{component}} Application Down
+      expr: node_systemd_unit_state{{instance="{{component}}", name="acpid.service", state="active", type="forking"} == 0
+      for: 1m
+      labels:
+        severity: critical
+        type: applicationAlerts
+        kind: serviceAlert
+        appName: {{component|lower}}
+      annotations:
+        summary: "{{component}} Component Service Down - IP - {%raw%}[{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
+
+        description: "{{component}} Component Service Down - IP - {%raw%}[{{ $labels.instance}}], Name - [{{ $labels.instanceName}}]"{%endraw%}
+
+  {% endfor %}
