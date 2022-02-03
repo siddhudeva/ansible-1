@@ -11,7 +11,7 @@ setup.template.settings:
   index.number_of_shards: 1
 
 output.logstash:
-  hosts: ["44.201.193.80:5044"]
+  hosts: ["54.173.26.58:5044"]
 
 processors:
   - add_host_metadata:
