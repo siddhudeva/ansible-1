@@ -26,5 +26,5 @@
     enabled: yes
   when: COMPONENT_TYPE == "APP"
 
-- name:FILEBEAT SETUP
+- name: FILEBEAT SETUP
   import_tasks: filebeat.yml
