@@ -3,12 +3,12 @@ filebeat.inputs:
     enabled: true
     paths:
       - /var/log/{{COMPONENT}}.log
-#    fields:
-#      componentName:  {{COMPONENT}}
-#      env: dev
-#      logType: json
-#      appLang: nodejs
-#    json.keys_under_root: true
+    fields:
+      componentName:  {{COMPONENT}}
+      env: dev
+      logType: json
+      appLang: nodejs
+    json.keys_under_root: true
 output.logstash:
   hosts: ["logstash.roboshop.internal:5044"]
 
