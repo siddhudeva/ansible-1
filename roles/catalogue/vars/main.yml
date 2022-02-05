@@ -1,5 +1,5 @@
 COMPONENT: catalogue
 COMPONENT_TYPE: APP
-LOG_FILE: /var/log/catalogue.log
-LOG_TYPE: json
-APP_LANG: nodejs
+#LOG_FILE: /var/log/catalogue.log
+#LOG_TYPE: json
+#APP_LANG: nodejs
