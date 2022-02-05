@@ -6,7 +6,7 @@ filebeat.inputs:
 # here fields are the one which are used as keys to find the logs
     fields:
       componentName: {{COMPONENT}}
-      env: dev
+      env: {{ENV}}
       logType: json
       appLang: nodejs
     json.keys_under_root: true
