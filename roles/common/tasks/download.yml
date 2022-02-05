@@ -1,13 +1,13 @@
 - name: Download and UnZip the {{COMPONENT}} Content
   ansible.builtin.unarchive:
-    src: https://github.com/roboshop-devops-project/{{COMPONENT}}/archive/main.zip
+    src: https://github.com/siddhudeva/{{COMPONENT}}/archive/main.zip
     dest: /tmp
     remote_src: yes
   when: GIT_DOWNLOAD is defined
 
 - name: Download {{COMPONENT}} from Nexus
   ansible.builtin.get_url:
-    url: http://34.205.146.81:8081/repository/{{COMPONENT}}/{{COMPONENT}}.{{APP_VERSION}}.zip
+    url: http://54.163.7.117:8081/repository/{{COMPONENT}}/{{COMPONENT}}.{{APP_VERSION}}.zip
     dest: /tmp
     username: "{{NEXUS_USERNAME}}"
     password: "{{NEXUS_PASSWORD}}"
