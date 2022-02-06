@@ -2,13 +2,13 @@ filebeat.inputs:
   - type: log
     enabled: true
     paths:
-      - /var/log/{{COMPONENT}}.log   # telling where these logs are should go
+      - {{LOG_FILE}}   # telling where these logs are should go
 # here fields are the one which are used as keys to find the logs
     fields:
       componentName: {{COMPONENT}}
       env: {{ENV}}
-      logType: json
-      appLang: nodejs
+      logType: {{LOG_TYPE}}
+      appLang: {{APP_LANG}}
     json.keys_under_root: true
 
 output.logstash:
