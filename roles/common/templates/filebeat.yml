@@ -10,7 +10,6 @@ filebeat.inputs:
       logType: json
       appLang: nodejs
     json.keys_under_root: true
-    json.message_key: log
 
 output.logstash:
   hosts: ["172.31.62.82:5044"]
