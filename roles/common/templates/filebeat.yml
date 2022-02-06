@@ -9,8 +9,9 @@ filebeat.inputs:
       env: {{ENV}}
       logType: {{LOG_TYPE}}
       appLang: {{APP_LANG}}
+{% if APP_LANG == "json" %}
     json.keys_under_root: true
-
+{% endif %}
 output.logstash:
   hosts: ["172.31.92.181:5044"]
 
