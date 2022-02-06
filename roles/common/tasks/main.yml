@@ -18,12 +18,12 @@
     enabled: yes
   when: COMPONENT_TYPE == "APP"
 
-- name: Restart {{COMPONENT}}
-  systemd:
-    name: catalogue
-    state: restarted
-    enabled: yes
-  when: COMPONENT_TYPE == "APP"
+#- name: Restart {{COMPONENT}}
+#  systemd:
+#    name: catalogue
+#    state: restarted
+#    enabled: yes
+#  when: COMPONENT_TYPE == "APP"
 
-#- name: FILEBEAT SETUP
-#  import_tasks: filebeat.yml
+- name: FILEBEAT SETUP
+  import_tasks: filebeat.yml
