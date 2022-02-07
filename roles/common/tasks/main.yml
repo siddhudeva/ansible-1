@@ -1,29 +1,29 @@
-- name: Set Hostname
-  ansible.builtin.shell: set-hostname {{COMPONENT}}-{{ENV}}
-
-- name: Install Node_Exporter
-  shell: curl -s https://raw.githubusercontent.com/siddhudeva/ansible-1/main/prometheus-nodeexporter/node-extractor.sh | bash
-  when: COMPONENT_TYPE == "APP"
-
-- name: UPdate Rsyslog config
-  template:
-    src: rsyslog.conf
-    dest: /etc/rsyslog.d/roboshop.conf
-  when: COMPONENT_TYPE == "APP"
-
-- name: Restart rsyslog
-  systemd:
-    name: rsyslog
-    state: restarted
-    enabled: yes
-  when: COMPONENT_TYPE == "APP"
-
-#- name: Restart {{COMPONENT}}
+#- name: Set Hostname
+#  ansible.builtin.shell: set-hostname {{COMPONENT}}-{{ENV}}
+#
+#- name: Install Node_Exporter
+#  shell: curl -s https://raw.githubusercontent.com/siddhudeva/ansible-1/main/prometheus-nodeexporter/node-extractor.sh | bash
+#  when: COMPONENT_TYPE == "APP"
+#
+#- name: UPdate Rsyslog config
+#  template:
+#    src: rsyslog.conf
+#    dest: /etc/rsyslog.d/roboshop.conf
+#  when: COMPONENT_TYPE == "APP"
+#
+#- name: Restart rsyslog
 #  systemd:
-#    name: catalogue
+#    name: rsyslog
 #    state: restarted
 #    enabled: yes
 #  when: COMPONENT_TYPE == "APP"
-
-- name: FILEBEAT SETUP
-  import_tasks: filebeat.yml
+#
+##- name: Restart {{COMPONENT}}
+##  systemd:
+##    name: catalogue
+##    state: restarted
+##    enabled: yes
+##  when: COMPONENT_TYPE == "APP"
+#
+#- name: FILEBEAT SETUP
+#  import_tasks: filebeat.yml
